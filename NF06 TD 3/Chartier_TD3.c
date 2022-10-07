@@ -158,7 +158,6 @@ typedef struct
     Cartesien cart;
     Polaire pol;
 } Cplx;
-
 Polaire CartToPol(Cartesien fcart)
 {
     Polaire fpol;
@@ -203,7 +202,129 @@ Cplx DivCplx(Cplx nb1, Cplx nb2)
     Quotient.pol.arg = nb1.pol.arg - nb2.pol.arg;
     Quotient.cart = PolToCart(Quotient.pol);
 }
+
 void exo38()
+{
+    /*Ne fonctionne pas
+    Cplx a, b, c, delta, racdelta, nom1, denom, sol1, nom2, sol2;
+    Cplx bcarr, ac, quatre, zero, deux, moinsb, qac;
+    quatre.cart.reel = 4;
+    quatre.cart.imag = 0;
+    quatre.pol = CartToPol(quatre.cart);
+    zero.cart.reel = 0;
+    zero.cart.imag = 0;
+    zero.pol = CartToPol(zero.cart);
+    deux.cart.reel = 2;
+    deux.cart.imag = 0;
+    deux.pol = CartToPol(deux.cart);
+    char right;
+
+    do
+    {
+        // Saisie premier cplx
+        printf("Entrer la partie réelle du premier coefficient : \n");
+
+        scanf("%f", &a.cart.reel);
+        printf("Entrer la partie imaginaire du premier coefficient : \n");
+
+        scanf("%f", &a.cart.imag);
+        // Saisie deuxieme cplx
+        printf("Entrer la partie réelle du deuxieme coefficient : \n");
+
+        scanf("%f", &b.cart.reel);
+        printf("Entrer la partie imaginaire du deuxieme coefficient : \n");
+
+        scanf("%f", &b.cart.imag);
+        // Saisie troisieme cplx
+        printf("Entrer la partie réelle du troisieme coefficient : \n");
+
+        scanf("%f", &b.cart.reel);
+        printf("Entrer la partie imaginaire du troisieme coefficient : \n");
+
+        scanf("%f", &b.cart.imag);
+        // Conversion des troi cplx en forme cartésienne
+        a.pol = CartToPol(a.cart);
+        b.pol = CartToPol(b.cart);
+        c.pol = CartToPol(c.cart);
+
+        printf("L'équation est bien : %f + %fi * x² + %f + %fi * x + %f + %fi ? \n ( O / N ) : ", a.cart.reel, a.cart.imag, b.cart.reel, b.cart.imag, b.cart.reel, b.cart.imag);
+
+        scanf("%c", right);
+
+    } while (right == 'N');
+
+    bcarr = MultCplx(b, b);
+    ac = MultCplx(a, c);
+    qac = MultCplx(quatre, ac);
+    delta = SousCplx(bcarr, qac);
+
+    // racine module et arg/2
+    racdelta.pol.arg = delta.pol.arg / 2;
+    racdelta.pol.mod = sqrt(delta.pol.mod);
+
+    moinsb = SousCplx(zero, moinsb);
+
+    nom1 = SommeCplx(moinsb, racdelta);
+    nom2 = SousCplx(moinsb, racdelta);
+
+    denom = MultCplx(deux, a);
+
+    sol1 = DivCplx(nom1, denom);
+    sol2 = DivCplx(nom2, denom);
+
+    printf("Solution 1 = %f + %fi, Solution 2 = %f + %fi", sol1.cart.reel, sol1.cart.imag, sol2.cart.reel, sol2.cart.imag);
+    */
+    printf("Ne fonctionne pas");
+}
+typedef enum
+{
+    voiture,
+    camion,
+    moto
+} typevehicle;
+typedef struct
+{
+    typevehicle type;
+
+    char proprio[20];
+    char mat[9];
+    int annee;
+    char modele[8];
+    union
+    {
+        int portes;
+        int gabarit;
+        int vitmax;
+    };
+
+} Vehicule;
+typedef struct
+{
+    Vehicule *occupant;
+    struct hres
+    {
+        int heure;
+        int minute;
+    };
+    int nbres;
+
+} Place;
+typedef struct
+{
+    Vehicule placesvoit[20];
+    Vehicule placescam[10];
+    Vehicule placesmoto[10];
+} Parking;
+
+void reserver(Vehicule v)
+{
+    if (v.type == voiture)
+    {
+        /* code */
+    }
+}
+
+void exo45()
 {
 }
 int main()
@@ -224,6 +345,10 @@ int main()
         break;
     case 38:
         exo38();
+        break;
+
+    case 45:
+        exo45();
         break;
     }
 }
