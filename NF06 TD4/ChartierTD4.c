@@ -93,7 +93,7 @@ void exo47()
     char c;
     etudiant *tabetu;
 
-    printf("Indiquer le nombre d'étudiants");
+    printf("Indiquer le nombre d'etudiants");
     scanf("%d", &N);
     tabetu = (etudiant *)malloc(N * sizeof(etudiant));
 
@@ -101,9 +101,8 @@ void exo47()
     {
         tabetu[i].nom = (char *)malloc(20 * sizeof(char));
         tabetu[i].prenom = (char *)malloc(20 * sizeof(char));
-        printf("Saisir le nom :\n");
+        printf("Saisir le nom et le prenom:\n");
         scanf("%s", tabetu[i].nom);
-        printf("Saisir le prenom :\n");
         scanf("%s", tabetu[i].prenom);
         printf("Saisir la note du median \n");
         scanf("%f", &tabetu[i].notemedian);
@@ -127,12 +126,12 @@ void exo47()
     {
         for (j = i + 1; j < N; j++)
         {
-            // Il faut faire un tri si les 1eres sont égales (pas fonctionnel pour l'instant)
-            /*while (tabetu[i].nom[lettre] == tabetu[j].nom[lettre])
+            // Si les 1eres lettres sont égales, on avance jusqu'à ce qu'on en trouve qui soient différentes ou qu'un nom soit fini
+            while (tabetu[i].nom[lettre] == tabetu[j].nom[lettre] && tabetu[i].nom[lettre] != '\0' && tabetu[j].nom[lettre] != '\0')
             {
                 lettre++;
-            }*/
-
+            }
+            // Si la lettre sélectionnée dans le nom de l'etudiant i est après celle de l'étudiant j, on échange leur place.
             if (tabetu[i].nom[lettre] > tabetu[j].nom[lettre])
             {
                 temp = tabetu[i];
@@ -140,9 +139,26 @@ void exo47()
                 tabetu[j] = temp;
             }
 
+            // Si les noms sont égaux, on compare les prénoms
+            if (tabetu[i].nom[lettre] == '\0' && tabetu[j].nom[lettre] == '\0')
+            {
+                lettre = 0;
+                while (tabetu[i].prenom[lettre] == tabetu[j].prenom[lettre] && tabetu[i].prenom[lettre] != '\0' && tabetu[j].prenom[lettre] != '\0')
+                {
+                    lettre++;
+                }
+                // Si la lettre sélectionnée dans le prénom de l'etudiant i est après celle de l'étudiant j, on échange leur place.
+                if (tabetu[i].prenom[lettre] > tabetu[j].prenom[lettre])
+                {
+                    temp = tabetu[i];
+                    tabetu[i] = tabetu[j];
+                    tabetu[j] = temp;
+                }
+            }
             lettre = 0;
         }
     }
+    printf("Liste par ordre alphabetique : \n");
     for (i = 0; i < N; i++)
     {
         printf("%s ", tabetu[i].nom);
@@ -150,12 +166,12 @@ void exo47()
     }
 
     // On libère la mémoire
-    free(tabetu);
     for (i = 0; i < N; i++)
     {
         free(tabetu[i].nom);
         free(tabetu[i].prenom);
     }
+    free(tabetu);
 }
 
 int main()
