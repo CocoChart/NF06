@@ -1,2 +1,2 @@
 # NF06
-A repository for school
+UTT course about programming in python and C
