@@ -4,58 +4,57 @@
 
 int main()
 {
-    /*Exo 1
-    printf("Hello world!\n");
-    printf("Nous sommes le 15 septembre\n");
-    printf("Semaine 37\n");
-    printf("corentin.chartier@utt.fr\n");
-    */
+  /*Exo 1
+  printf("Hello world!\n");
+  printf("Nous sommes le 15 septembre\n");
+  printf("Semaine 37\n");
+  printf("corentin.chartier@utt.fr\n");
+  */
 
+  /*Exo 2
+  int i = 0;
+  int j = 5;
+  // Division de i par j
+  printf("Division de i par j = %d", i/j);
+  */
 
-    /*Exo 2
-    int i = 0;
-    int j = 5;
-    // Division de j par i
-    printf("Division de i par j = %d", i/j);
-    */
-
-    /*Exo 3
-    printf("int %d octets \n",sizeof(int));
-    printf("short %d octets \n",sizeof(short));
-    printf("char %d octets \n",sizeof(char));
-    printf("float %d octets \n",sizeof(float));
-    printf("double %d octets \n",sizeof(double));
+  /*Exo 3
+  printf("int %d octets \n",sizeof(int));
+  printf("short %d octets \n",sizeof(short));
+  printf("char %d octets \n",sizeof(char));
+  printf("float %d octets \n",sizeof(float));
+  printf("double %d octets \n",sizeof(double));
 */
 
-    /*Exo 4
-    A += (unsigned short)C ; //A devient A+C
-    A = ~A; //A devient le complémentaire de A en binaire
-    B =A^(A+2); //A est monté à la puissance A + C
-    C = (float)(A<<B); //C prend la valeur de A avec un décalage de B bits vers la gauche
-    A = A&(unsigned short)C; //A prend la valeur du nombre qui en binaire a les bits présents dans A ET dans C
-    */
+  /*Exo 4
+  A += (unsigned short)C ; //A devient A+C
+  A = ~A; //A devient le complémentaire de A en binaire
+  B =A^(A+2); //A est monté à la puissance A + C
+  C = (float)(A<<B); //C prend la valeur de A avec un décalage de B bits vers la gauche
+  A = A&(unsigned short)C; //A prend la valeur du nombre qui en binaire a les bits présents dans A ET dans C
+  */
 
-   /*Exo 5
-   int x,n,p,i;
-   long mask;
-   printf("Choisir la valeur x\n");
-   scanf("%d",&x);
-   printf("Choisir le nombre p de bits inverses\n");
-   scanf("%d",&p);
-   printf("Choisir la position de depart n\n");
-   scanf("%d",&n);
+  /*Exo 5
+  int x,n,p,i;
+  long mask;
+  printf("Choisir la valeur x\n");
+  scanf("%d",&x);
+  printf("Choisir le nombre p de bits inverses\n");
+  scanf("%d",&p);
+  printf("Choisir la position de depart n\n");
+  scanf("%d",&n);
 
-   mask=0; //Vaut 000000... en binaire
+  mask=0; //Vaut 000000... en binaire
 
-   for ( i = 0; i < p; i++) //On ajoute des 1 p fois à partir de la position n
-   {
-    mask += pow(2,(n-1+i)) ;
-   }
-   
-   x = x^mask;
-   printf("Valeur de x :%d",x);
+  for ( i = 0; i < p; i++) //On ajoute des 1 p fois à partir de la position n
+  {
+   mask += pow(2,(n-1+i)) ;
+  }
 
-   */
+  x = x^mask;
+  printf("Valeur de x :%d",x);
+
+  */
   /*Exercice 6*/
   /*Question 1
   int x,y;
@@ -71,7 +70,7 @@ int main()
     printf("Entrer le deuxième entier non nul\n");
     scanf("%d", &y);
   }
-  
+
   printf("La somme est %d\n", x+y);
   printf("La différence %d - %d est %d\n",x,y, x-y);
   printf("Le produit est %d\n", x*y);
@@ -91,21 +90,18 @@ int main()
   printf("a  = %f, b = %f", a,b);
 */
 
- //Ne fonctionne pas avec les caractères
-  char a,b,temp;
+  // Ne fonctionne pas avec les caractères
+  char a, b, temp;
   printf("valeur de a ?\n");
-  scanf("%c",&a);
+  scanf("%c", &a);
   printf("valeur de b ?\n");
-  scanf("%c",&b);
+  scanf("%c", &b);
   temp = a;
-  a=b;
-  b=temp;
-  printf("a  = %c, b = %c", a,b);
-
+  a = b;
+  b = temp;
+  printf("a  = %c, b = %c", a, b);
 
   /* Question 3*/
 
-
   return 0;
 }
-
